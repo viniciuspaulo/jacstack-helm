@@ -32,9 +32,6 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          volumeMounts:
-            - mountPath: /home/project
-              name: volume-theia-vinicius
           ports:
             - name: http
               containerPort: 3000
